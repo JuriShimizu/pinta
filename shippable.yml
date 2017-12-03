@@ -6,8 +6,6 @@ rvm:
 build:
   ci:
     - bundle install
-    - rails db:create
-    - rails db:migrate
     - bundle exec rubocop
     - bundle exec rails_best_practices
     - bundle exec scss-lint
