@@ -11,9 +11,8 @@ class SessionsController < ApplicationController
     @session = Session.new(session_params)
 
     respond_to do |format|
-      @user=User.find_by(email:session_params[:email].downcase)
-      if @user && @user.authenticate(session_params[:password]) && @session.save
-        format.html { redirect_to @user, notice: 'Session was successfully created.' }
+     if @session.valid?
+        format.html { redirect_to @session.user, notice: 'Session was successfully created.' }
       else
         format.html { render :new }
       end

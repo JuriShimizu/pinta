@@ -1,9 +1,21 @@
-class Session < ApplicationRecord
+class Session
+  include ActiveModel::Model
+  include ActiveModel::Validations
+  attr_accessor :email, :password 
 
-	has_secure_password
-	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	validates :email, presence: true,
-		format: { with: VALID_EMAIL_REGEX },
-		uniqueness: { case_sensitive: false }
-	
+  validates :email, presence: true
+  validates :password, presence: true
+  validate :valid_auth
+
+  def user
+    User.find_by(email: email)
+  end
+
+  def valid_auth
+    if user.blank? || !user.authenticate(password)
+      errors.add(:base, "メールアドレスもしくはパスワードがまちがっています")
+      return false
+    end
+    true
+  end
 end
