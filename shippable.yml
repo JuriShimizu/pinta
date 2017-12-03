@@ -1,28 +1,14 @@
-# 言語指定（必須）
 language: ruby
 
-# rubyのバージョン
-rvm: 2.4.1
+rvm:
+  - 2.4.1
 
-# gemfileの保存先
-gemfile: Gemfile
-
-# gemのインストール
 build:
   ci:
     - bundle install
-
-# テストの準備。DBの作成・テスト結果出力フォルダの作成
-before_script:
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
-
-services:
-  - postgres
-
-# テストの実行
-script:
-  - bundle exec rubocop
-  - bundle exec rails_best_practices
-  - bundle exec scss-lint
-  - bundle exec brakeman
+    - rails db:create
+    - rails db:migrate
+    - bundle exec rubocop
+    - bundle exec rails_best_practices
+    - bundle exec scss-lint
+    - bundle exec brakeman
