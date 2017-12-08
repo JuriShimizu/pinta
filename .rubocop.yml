@@ -5,3 +5,7 @@ Metrics/LineLength:
 # Missing top-level class documentation comment
 Style/Documentation:
   Enabled: false
+
+# Use %i or %I for an array of symbols
+Style/SymbolArray:
+  Enabled: false
