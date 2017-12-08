@@ -43,7 +43,7 @@ group :development, :test do
   gem 'rails_best_practices'
   gem 'rspec'
   gem 'rubocop'
-  gem 'scss-lint'
+  gem 'scss_lint'
   gem 'selenium-webdriver'
 end
 

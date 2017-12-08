@@ -13,10 +13,10 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if @session.valid?
         session[:user_id] = @session.user.id
-        format.html { redirect_to @session.user, notice: 'Session was successfully created.' }
+        format.html { redirect_to user_url(@session.user), notice: 'Session was successfully created.'}
       else
         format.html { render :new }
-       end
+      end
     end
   end
 

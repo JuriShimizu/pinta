@@ -12,8 +12,6 @@ class Session
   end
 
   def valid_auth
-    if user.blank? || !user.authenticate(password)
-      errors.add(:base, 'メールアドレスもしくはパスワードがまちがっています')
-    end
+    errors.add(:base, 'メールアドレスもしくはパスワードがまちがっています') if user.blank? || !user.authenticate(password)
   end
 end

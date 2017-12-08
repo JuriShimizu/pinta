@@ -32,3 +32,15 @@ Things you may want to cover:
 ```
 bundle exec rubocop
 ```
+- ベストプラクティスに則っているか
+```
+bundle exec rails_best_practices
+```
+- scssチェック
+```
+bundle exec scss_lint
+```
+- セキュリティチェック
+```
+bundle exec brakeman
+```

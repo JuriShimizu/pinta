@@ -1,0 +1,7 @@
+# Line is too long 
+Metrics/LineLength:
+  Enabled: false
+
+# Missing top-level class documentation comment
+Style/Documentation:
+  Enabled: false
